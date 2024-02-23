@@ -41,11 +41,7 @@ const feed = () => {
   const [likes, setLikes] = useState(0);
 
   const handleLikeClick = () => {
-    if (likes === 1) {
-      setLikes(0);
-    } else {
-      setLikes(1);
-    }
+    setLikes(likes + 1);
   };
 
   return (

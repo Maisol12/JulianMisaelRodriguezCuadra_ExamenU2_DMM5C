@@ -36,11 +36,11 @@ const perfilpersonal = () => {
           <Text style={styles.statsLabel}>Seguidos</Text>
         </View>
       </View>
-      <View>
+      <View style={{paddingBottom:150}}>
         <ScrollView
             horizontal={true}
-            style={{ padding: 10, paddingBottom: 10, backgroundColor: "white" }}
-          >
+            style={{ backgroundColor: "white" }}
+            >
             <View style={{ alignItems: "center", marginRight: 10 }}>
               <Image
                 style={styles.imagenf}

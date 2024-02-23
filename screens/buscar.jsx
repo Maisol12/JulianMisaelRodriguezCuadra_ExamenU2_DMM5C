@@ -34,6 +34,11 @@ const buscar = () => {
                 <Image style={{width:140, height:120, borderRadius: 10}} source={require('../assets/foto5.jpg')}/>
                 <Image style={{width:140, height:120, borderRadius: 10}} source={require('../assets/foto5.jpg')}/>
             </View>
+            <View style={{flexDirection: 'row', justifyContent: 'flex-start',paddingBottom:14}}>
+                <Image style={{width:140, height:120, borderRadius: 10}} source={require('../assets/foto5.jpg')}/>
+                <Image style={{width:140, height:120, borderRadius: 10}} source={require('../assets/foto5.jpg')}/>
+                <Image style={{width:140, height:120, borderRadius: 10}} source={require('../assets/foto5.jpg')}/>
+            </View>
         </View>
     </View>
   );
