@@ -1,12 +1,14 @@
 import { useNavigation } from "@react-navigation/native";
 import { Image, Text } from "@rneui/themed";
 import { StatusBar } from "expo-status-bar";
-import { TouchableOpacity, View, SectionList, ScrollView } from "react-native";
+import { TouchableOpacity, View, SectionList, ScrollView, Modal } from "react-native";
 import { StyleSheet } from "react-native";
 import React, { useState } from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 const feed = () => {
+    const [modalVisible, setModalVisible] = useState(false);
+  const [imagenActual, setImagenActual] = useState('');
   const feed = [
     {
       imagen: require("../assets/foto1.jpg"),
@@ -65,18 +67,22 @@ const feed = () => {
             style={{ padding: 10, paddingBottom: 10, backgroundColor: "white" }}
           >
             <View style={{ alignItems: "center", marginRight: 10 }}>
+            <TouchableOpacity onPress={() => {require('../assets/foto7.jpg'); setModalVisible(true); }}>
               <Image
                 style={styles.imagenf}
                 source={require("../assets/foto7.jpg")}
               />
               <Text>Julian</Text>
+                </TouchableOpacity>
             </View>
             <View style={{ alignItems: "center", marginRight: 10 }}>
+            <TouchableOpacity onPress={() => {require('../assets/foto7.jpg'); setModalVisible(true); }}>
               <Image
                 style={styles.imagenf}
                 source={require("../assets/foto7.jpg")}
               />
               <Text>Julian</Text>
+              </TouchableOpacity>
             </View>
             <View style={{ alignItems: "center", marginRight: 10 }}>
               <Image
@@ -121,6 +127,25 @@ const feed = () => {
               <Text>Julian</Text>
             </View>
           </ScrollView>
+          <Modal
+              animationType="slide"
+              transparent={true}
+              visible={modalVisible}
+              onRequestClose={() => {
+                setModalVisible(!modalVisible);
+              }}>
+              <View style={styles.centeredView}>
+                <View style={styles.modalView}>
+                  <Image source={require('../assets/foto7.jpg')} style={styles.imagenGrande} />
+                  <TouchableOpacity
+                    style={styles.buttonClose}
+                    onPress={() => setModalVisible(!modalVisible)}>
+                    <Text style={styles.textStyle}>Cerrar</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </Modal>
+          
         </View>
         <SectionList
           sections={[{ title: "feed", data: feed }]}
@@ -216,6 +241,42 @@ const styles = StyleSheet.create({
     height: 90,
     width: 90,
     borderRadius: 50,
+  },
+  imagenGrande: {
+    width: 200,
+    height: 200,
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
   },
 });
 
